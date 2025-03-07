@@ -114,7 +114,7 @@ FROM scratch
 COPY --from=build / /
 
 # Set working directory
-WORKDIR /docs
+WORKDIR /
 
 # Expose MkDocs development server port
 EXPOSE 8000
