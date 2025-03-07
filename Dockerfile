@@ -104,8 +104,8 @@ RUN mkdir -p /var/cache/fontconfig && \
     fc-cache -f
 
 # Configure git
-RUN git config --system --add safe.directory /docs 
-RUN git config --system --add safe.directory /site
+RUN git config --system --add safe.directory /tmp/docs 
+RUN git config --system --add safe.directory /tmp/site
 
 # From empty image
 FROM scratch
