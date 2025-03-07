@@ -40,3 +40,4 @@ pygments
 qrcode
 regex
 requests
+mkdocs-include-markdown-plugin
