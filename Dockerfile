@@ -104,6 +104,8 @@ RUN mkdir -p /var/cache/fontconfig && \
     fc-cache -f
 
 # Configure git
+RUN mkdir -p /tmp/docs
+RUN mkdir -p /tmp/site
 RUN git config --system --add safe.directory /tmp/docs 
 RUN git config --system --add safe.directory /tmp/site
 RUN echo "INHERIT: docs/theme/mkdocs.yml" > "/tmp/mkdocs.yml"
