@@ -106,6 +106,7 @@ RUN mkdir -p /var/cache/fontconfig && \
 # Configure git
 RUN git config --system --add safe.directory /tmp/docs 
 RUN git config --system --add safe.directory /tmp/site
+RUN echo "INHERIT: docs/theme/mkdocs.yml" > "/tmp/mkdocs.yml"
 
 # From empty image
 FROM scratch
