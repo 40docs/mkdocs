@@ -17,7 +17,6 @@ ENV LANG="C.UTF-8"
 ENV LC_ALL="C.UTF-8"
 
 # Set build directory
-WORKDIR /tmp
 
 # Copy files necessary for build
 COPY material material
@@ -120,5 +119,6 @@ COPY --from=build / /
 EXPOSE 8000
 
 # Start development server by default
+WORKDIR /tmp
 ENTRYPOINT ["/usr/bin/tini", "--", "mkdocs"]
 CMD ["serve", "--dev-addr=0.0.0.0:8000"]
