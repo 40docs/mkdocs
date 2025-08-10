@@ -2,7 +2,7 @@
 
 **Enterprise-Grade Documentation Container System for 40docs Platform**
 
-A specialized Docker container build system that provides secure, optimized MkDocs documentation containers with Material theme integration and comprehensive plugin ecosystem. Part of the 40docs platform's Documentation-as-Code infrastructure.
+A specialized Docker container build system that provides secure, optimized MkDocs documentation containers with Material theme integration and comprehensive plugin ecosystem. This is a core component of the 40docs platform's Documentation-as-Code infrastructure, supporting multi-repository documentation builds with GitOps automation.
 
 ## 🏗️ Architecture Overview
 
@@ -15,11 +15,13 @@ This repository builds production-ready MkDocs containers with three distinct ar
 ### Key Features
 
 ✅ **Material Theme Integration**: Built-in mkdocs-material with theme linking and customization  
-✅ **Comprehensive Plugin Ecosystem**: 28+ MkDocs plugins including PDF export, git integration, and content enhancement  
+✅ **Comprehensive Plugin Ecosystem**: 40+ MkDocs plugins including PDF export, git integration, and content enhancement  
 ✅ **Playwright Support**: Browser automation for PDF generation and visual testing  
 ✅ **Multi-Language Font Support**: Noto, DejaVu, and Asian language fonts for international documentation  
 ✅ **Security Hardening**: Non-root execution, distroless images, and security scanning integration  
 ✅ **GitOps Ready**: Seamless integration with 40docs platform's Flux-based deployment system  
+✅ **Multi-Repository Support**: Cross-repository theme inheritance and content mounting  
+✅ **Container Registry Integration**: GitHub Container Registry with multi-architecture support  
 
 ## 🚀 Quick Start
 
@@ -58,7 +60,7 @@ docker run -it --entrypoint /bin/bash mkdocs-standard
 
 ## 📦 Plugin Ecosystem
 
-This container includes 28+ specialized MkDocs plugins organized by functionality:
+This container includes 40+ specialized MkDocs plugins organized by functionality:
 
 ### Content Enhancement
 - `mkdocs-macros-plugin` - Template macros and variables
@@ -156,10 +158,11 @@ RUN echo "INHERIT: docs/theme/mkdocs.yml" > "/tmp/mkdocs.yml"
 
 ### GitOps Workflow Integration
 
-- **Flux v2 Compatibility**: Seamless deployment to Kubernetes clusters
-- **Multi-Repository Builds**: SSH key injection for secure cross-repo access
-- **Content Mounting**: Documentation content from distributed repositories
-- **Build Pipeline**: Integrated with platform's automated deployment system
+- **Flux v2 Compatibility**: Seamless deployment to Kubernetes clusters via HelmRelease resources
+- **Multi-Repository Builds**: SSH key injection for secure cross-repo access during build process
+- **Content Mounting**: Documentation content from distributed repositories across the 40docs ecosystem
+- **Build Pipeline**: Integrated with platform's automated deployment system and CI/CD workflows
+- **Kubernetes Integration**: Deployed as containerized workloads with proper resource limits and security contexts
 
 ### Cross-Repository Dependencies
 
@@ -246,17 +249,19 @@ docker run --rm mkdocs-standard pip list | grep mkdocs
 
 ## 📚 Related Documentation
 
-- [40docs Platform Overview](../README.md)
-- [CLAUDE.md - Development Guidelines](./CLAUDE.md)
-- [Infrastructure Documentation](../infrastructure/README.md)
-- [Theme Repository](../theme/README.md)
-- [MkDocs Material Documentation](https://squidfunk.github.io/mkdocs-material/)
+- [40docs Platform Overview](../README.md) - Complete platform architecture and multi-repository structure
+- [CLAUDE.md - Development Guidelines](./CLAUDE.md) - Container-specific development guidance and security standards
+- [Infrastructure Documentation](../infrastructure/README.md) - Terraform-based Azure infrastructure deployment
+- [Manifests Infrastructure](../manifests-infrastructure/README.md) - Kubernetes infrastructure components and GitOps patterns
+- [Theme Repository](../theme/README.md) - Material theme customization and inheritance system
+- [MkDocs Material Documentation](https://squidfunk.github.io/mkdocs-material/) - Upstream documentation for Material theme
 
 ## 🏷️ Version History
 
-- **v1.0**: Initial multi-variant container system
-- **Recent**: Security-optimized distroless builds
-- **Latest**: Enhanced plugin ecosystem with 28+ plugins
+- **v1.0**: Initial multi-variant container system with basic MkDocs support
+- **v1.5**: Security-optimized distroless builds with non-root execution
+- **v2.0**: Enhanced plugin ecosystem with 40+ plugins and Playwright integration
+- **Latest**: GitHub Container Registry integration with multi-architecture support and GitOps automation
 
 ---
 
